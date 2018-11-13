@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>opdracht 4</title>
+  </head>
+  <body>
+    <p id="demo">Good Afternoon</p>
+    <p id="klok">17 : 7 : 26</p>
+    <p id="exacteDatum">Friday : October : 2017</p>
+    <div>
+      <input type="text" value="Date of birth.">
+      <input type="submit" value="Submit">
+    </div>
+
+
+
+    <script type="text/javascript">
+      var klok = document.getElementById("klok");
+      var exacteDatum = document.getElementById("exacteDatum");
+      var uren = new Date().getHours();
+      var maandNamen = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      var dagNamen = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      var greeting;
+
+      function timeAndDate() {
+        var datum = new Date();
+        klok.innerHTML =  datum.getHours() + " : " + datum.getMinutes() + " : " + datum.getSeconds();
+        exacteDatum.innerHTML = dagNamen[datum.getDay()] + " : " + maandNamen[datum.getMonth()] + " : " + datum.getFullYear();
+      }
+
+      setInterval(timeAndDate,1000);
+
+      if (uren < 12) {
+        greeting = "Good Morning";
+      } else if (uren < 18) {
+          greeting = "Good Afternoon";
+      } else {
+          greeting = "Good Evening";
+      }
+      document.getElementById("demo").innerHTML = greeting;
+
+    </script>
+
+
+</body></html>
